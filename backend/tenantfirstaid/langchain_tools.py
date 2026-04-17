@@ -58,13 +58,6 @@ def _repair_mojibake(text: str) -> str:
         )
         return text
 
-    if "\ufffd" in repaired:
-        logger.warning(
-            "mojibake repair would introduce replacement characters; skipping: %.120r",
-            text,
-        )
-        return text
-
     if repaired != text:
         logger.debug(
             "mojibake repair applied to RAG passage (first 120 chars): %.120r", text
