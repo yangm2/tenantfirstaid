@@ -89,7 +89,7 @@ class _GoogEnvAndPolicy:
         # read .env at object creation time
         path_to_env = Path(__file__).parent / "../.env"
         if path_to_env.exists():
-            load_dotenv(override=True)
+            load_dotenv(path_to_env, override=True)
 
         # Assign & Check slot attributes for required environment variables.
         # Note: assign explicitly since typecheckers do not understand slotted attributes
